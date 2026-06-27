@@ -4,13 +4,13 @@ import { getAnalytics } from "firebase/analytics";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBCWwV1KT7WhwNjwnB6ybPujJcYU9FEZ5o",
-    authDomain: "voya-9fb3c.firebaseapp.com",
-    projectId: "voya-9fb3c",
-    storageBucket: "voya-9fb3c.firebasestorage.app",
-    messagingSenderId: "289174974002",
-    appId: "1:289174974002:web:390c6c7d1f258b8aa0162b",
-    measurementId: "G-LLR47N9H9W"
+    apiKey: process.env.VITE_FIREBASE_API_KEY,
+    authDomain: process.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.VITE_FIREBASE_APP_ID,
+    measurementId: process.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
