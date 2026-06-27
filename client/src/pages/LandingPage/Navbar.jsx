@@ -43,7 +43,7 @@ export default function ModernNavbar() {
         <>
             <header
                 className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled
-                        ? "bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-800"
+                        ? "bg-transparent backdrop-blur-lg border-b border-none rounded-2xl w-[80vw] left-1/2 -translate-x-1/2 mt-4"
                     : " border-b border-transparent bg-[#FFF8F5]"
                     }`}
             >

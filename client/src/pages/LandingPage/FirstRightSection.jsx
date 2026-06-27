@@ -15,13 +15,13 @@ export default function FirstRightSection() {
 
     return (
         <div
-            className="min-h-screen flex items-center justify-center"
-            style={{ backgroundColor: "#FFFDF9" }} // Fixed: Removed duplicate "#"
+            className=" flex items-center justify-center "
+            style={{ backgroundColor: "#FFFDF9" }} 
         >
-            {/* Collage Container */}
+          
             <div className="relative" style={{ width: "680px", height: "500px" }}>
 
-                {/* TOP LEFT — Passport (dark bg, tilted left) */}
+                
                 <div
                     className="absolute"
                     style={{

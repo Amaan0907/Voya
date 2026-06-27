@@ -15,3 +15,6 @@ body {
 .hero-heading em {
     font-style: italic;
 }
+.card{
+    font-family: 'Google Sans Variable', sans-serif;
+}
