@@ -10,10 +10,12 @@ const FirstLeftSection = () => {
       <p className='w-[68%] text-[19px]'>Our AI understand your unique travel style to curate bespoke itineraries. Experience the world like a local, curated by data</p>
       </div>
       
+        <div className='flex gap-9'>
 
-        <button className=' h-13 text-center bg-[#F57C00]  w-70  border-none text-white font-bold rounded-4xl hover:scale-110 shadow-bg-[#f48d26] shadow-2xl'>Start Planning Free</button>
+        <button className=' h-13 text-center bg-[#F57C00]  w-70  border-none text-white font-bold rounded-4xl hover:scale-110 shadow-olive-400 shadow-2xl'>Start Planning Free</button>
       
         <button className=' h-13 text-center  border-black border  w-70   text-black font-bold rounded-4xl  hover:bg-[#fff0ea]'>See a Sample Trip</button>
+        </div>
     </div>
 
       
