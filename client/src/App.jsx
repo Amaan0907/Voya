@@ -5,6 +5,7 @@ import FirstRightSection from './pages/LandingPage/FirstRightSection'
 import SecondSection from './pages/LandingPage/SecondSection'
 import ThirdLeftSection from './pages/LandingPage/ThirdLeftSection'
 import ThirdRightSection from './pages/LandingPage/ThirdRightSection'
+import FourthSection from './pages/LandingPage/FourthSection'
 
 const App = () => {
   return (
@@ -25,9 +26,12 @@ const App = () => {
       <div className="h-[70vh] flex items-center justify-center bg-[#FFF8F5] border-none">
         <SecondSection/>
       </div>
-      <div className="h-[70vh] w-screen bg-[#fff1d6] flex border-none items-center justify-center gap-20">
+      <div className="h-[70vh] w-screen bg-[#FFF8F5] flex border-none items-center justify-center gap-20">
         <ThirdLeftSection />
     <ThirdRightSection/>
+      </div>
+      <div className="h-[50vh] flex items-center justify-center border-none bg-[#F57C00]">
+        <FourthSection/>
       </div>
     </div>
   )
