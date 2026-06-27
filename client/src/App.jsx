@@ -3,7 +3,8 @@ import Navbar from './pages/LandingPage/Navbar'
 import FirstLeftSection from './pages/LandingPage/FirstLeftSection'
 import FirstRightSection from './pages/LandingPage/FirstRightSection'
 import SecondSection from './pages/LandingPage/SecondSection'
-import ThirdSection from './pages/LandingPage/ThirdLeftSection'
+import ThirdLeftSection from './pages/LandingPage/ThirdLeftSection'
+import ThirdRightSection from './pages/LandingPage/ThirdRightSection'
 
 const App = () => {
   return (
@@ -24,10 +25,10 @@ const App = () => {
       <div className="h-[70vh] flex items-center justify-center bg-[#FFF8F5] border-none">
         <SecondSection/>
       </div>
-      <div className="h-[70vh] flex items-center justify-center bg-[#FFF8F5] border-none">
-        <ThirdSection/>
+      <div className="h-[70vh] w-screen bg-[#fff1d6] flex border-none items-center justify-center gap-20">
+        <ThirdLeftSection />
+    <ThirdRightSection/>
       </div>
-
     </div>
   )
 }

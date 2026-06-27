@@ -16,8 +16,8 @@ export default function ThirdLeftSection() {
     });
 
     return (
-        <div className="p-8 flex items-center justify-center w-110">
-            <div className="w-full max-w-sm">
+        <div className=" flex items-center justify-center w-110 shadow-2xl rounded-2xl">
+            <div className="w-full">
                 <style>{`
           @keyframes drawRoute {
             to { stroke-dashoffset: 0; }
@@ -34,7 +34,7 @@ export default function ThirdLeftSection() {
                     className={`bg-white rounded-2xl border border-orange-100 shadow-sm overflow-hidden transition-all duration-500 ease-out ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                         }`}
                 >
-                    <div className="flex items-center gap-1.5 px-4 py-2.5 bg-orange-50">
+                    <div className="flex items-center gap-1.5 px-4 py-2.5 bg-[#FFF0EE]">
                         <span className="w-2 h-2 rounded-full bg-red-400" />
                         <span className="w-2 h-2 rounded-full bg-amber-400" />
                         <span className="w-2 h-2 rounded-full bg-green-400" />
@@ -49,7 +49,7 @@ export default function ThirdLeftSection() {
                                 <Compass className="w-4 h-4 text-white" />
                             </div>
                             <div>
-                                <p className="text-sm font-medium text-stone-900">Your Kyoto trip</p>
+                                <p className="text-sm font-medium hero-heading text-stone-900">Your Kyoto trip</p>
                                 <p className="text-xs text-stone-500">Day 2 of 5</p>
                             </div>
                         </div>
@@ -63,11 +63,11 @@ export default function ThirdLeftSection() {
                                 <p className="text-xs text-stone-500">Live weather and flight status</p>
                             </div>
                             <div className="flex gap-2">
-                                <div className="flex-1 bg-orange-50 rounded-lg py-2.5 text-center transition-colors duration-200 hover:bg-orange-100">
+                                <div className="flex-1 bg-[#FFF0EE] rounded-lg py-2.5 text-center transition-colors duration-200 hover:bg-[#ffd6d1]">
                                     <Sun className="w-4 h-4 text-orange-500 mx-auto" />
                                     <p className="text-xs font-medium text-orange-900 mt-1">22°C, clear</p>
                                 </div>
-                                <div className="flex-1 bg-orange-50 rounded-lg py-2.5 text-center transition-colors duration-200 hover:bg-orange-100">
+                                <div className="flex-1 bg-[#FFF0EE] rounded-lg py-2.5 text-center transition-colors duration-200 hover:bg-[#ffd6d1]">
                                     <Plane className="w-4 h-4 text-orange-500 mx-auto" />
                                     <p className="text-xs font-medium text-orange-900 mt-1">NH205 on time</p>
                                 </div>
@@ -76,7 +76,7 @@ export default function ThirdLeftSection() {
 
                        
 
-                        <div className="border-t border-orange-100 mb-4" />
+                        <div className="border-t border-[#FFF0EE] mb-4" />
 
                         <div className="mb-4 transition-all duration-500 ease-out" style={rowStyle(360)}>
                             <p className="text-xs text-stone-500 mb-1.5">Travel group</p>
@@ -93,18 +93,18 @@ export default function ThirdLeftSection() {
                                     </div>
                                     <p className="text-xs text-stone-500 ml-2">4 traveling</p>
                                 </div>
-                                <div className="text-xs font-medium text-orange-900 bg-orange-50 px-2.5 py-1 rounded-full transition-colors duration-200 hover:bg-orange-100">
-                                    ¥3,200 / person
+                                <div className="text-xs font-medium text-orange-900 bg-[#FFF0EE] px-2.5 py-1 rounded-full transition-colors duration-200 hover:bg-[#ffd6d1]">
+                                    ₹3,200 / person
                                 </div>
                             </div>
                         </div>
 
-                        <div className="border-t border-orange-100 mb-4" />
+                        <div className="border-t border-[#FFF0EE] mb-4" />
 
                         <div className="transition-all duration-500 ease-out" style={rowStyle(480)}>
                             <p className="text-xs text-stone-500 mb-1.5">Map for this leg</p>
                             <div className="flex items-center gap-2.5">
-                                <svg viewBox="0 0 160 56" className="flex-1 rounded-lg bg-orange-50">
+                                <svg viewBox="0 0 160 56" className="flex-1 rounded-lg bg-[#FFF0EE]">
                                     <path
                                         d="M14,40 C45,12 75,46 105,18 S140,30 148,14"
                                         fill="none"
