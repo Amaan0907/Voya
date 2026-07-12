@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const LINKS = [
     { label: "Features", href: "#features" },
@@ -56,7 +57,7 @@ export default function ModernNavbar() {
                         </span>
                     </a>
 
-                    {/* Desktop links */}
+                    
                     <ul className="hidden md:flex items-center gap-1 ">
                         {LINKS.map((link) => (
                             <li key={link.label}>
@@ -75,16 +76,16 @@ export default function ModernNavbar() {
                         ))}
                     </ul>
 
-                    {/* CTA */}
+                    
                     <div className="hidden md:flex items-center gap-3">
                         
-                        <a
-                            href="#start"
+                        <Link
+                            to='/login'
                             className="group inline-flex items-center gap-1.5 rounded-full bg-[#F57C00] px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-bg-[#f48d26] hover:bg-[#f48d26] transition-colors"
                         >
                             Sign in
                             <ArrowRightIcon className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Mobile toggle */}
@@ -120,13 +121,13 @@ export default function ModernNavbar() {
                                 </a>
                             </li>
                         ))}
-                        <a
-                            href="#start"
+                        <Link
+                            to='/login'
                             className="mt-3 inline-flex items-center justify-center gap-1.5 rounded-full bg-[#F57C00] px-4 py-2 text-sm font-semibold text-white"
                         >
-                            Get started
+                            Sign in
                             <ArrowRightIcon className="h-3.5 w-3.5" />
-                        </a>
+                        </Link>
                     </ul>
                 </div>
             </header>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const FirstLeftSection = () => {
   return (
@@ -12,7 +13,7 @@ const FirstLeftSection = () => {
       
         <div className='flex gap-9'>
 
-        <button className=' h-13 text-center bg-[#F57C00]  w-70  border-none text-white font-bold rounded-4xl hover:scale-110 shadow-olive-400 shadow-2xl'>Start Planning Free</button>
+        <Link to='/login' className=' h-13 text-center bg-[#F57C00]  w-70  border-none text-white font-bold rounded-4xl hover:scale-110 shadow-olive-400 shadow-2xl flex justify-center items-center'>Start Planning Free</Link>
       
         <button className=' h-13 text-center  border-black border  w-70   text-black font-bold rounded-4xl  hover:bg-[#fff0ea]'>See a Sample Trip</button>
         </div>

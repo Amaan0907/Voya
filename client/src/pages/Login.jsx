@@ -8,19 +8,28 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
 
-  const {signup,signin}=useFirebase()
+  const firebase=useFirebase()
 
   const handleSubmit=async(e)=>{
     e.preventDefault()
 
     try {
-      await signin(email,password)
+      await firebase.signin(email,password)
     } catch (error) {
       console.log(error.message)
       throw error
     }  
   }
 
+  const handleGoogleSignIn=async()=>{
+    try {
+      const user= await firebase.googleSignIn()
+      console.log(user)
+    } catch (error) {
+      console.log(error.message)
+      throw error
+    }
+  }
 
   return (
     
@@ -50,6 +59,7 @@ export default function Login() {
             <button
               type="button"
               className="w-full flex items-center justify-center gap-2 rounded-full border border-stone-300 bg-white py-3 px-4 text-stone-800 font-medium hover:bg-stone-50 transition-colors mb-5 cursor-pointer"
+            onClick={handleGoogleSignIn}
             >
               <GoogleIcon />
               Continue with Google

@@ -1,18 +1,16 @@
 import { firebaseConfig, auth } from "../firebase";
-import { createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut,GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 
 export class AuthService {
     constructor(auth){
-        this.auth=auth
+        this.auth=auth,
+        this.provider=new GoogleAuthProvider()
     }
     
     async signup(email, password) {
         try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-
-            
-
+            const userCredential = await createUserWithEmailAndPassword(this.auth, email, password)
             console.log(userCredential)
 
             return userCredential.user
@@ -25,7 +23,7 @@ export class AuthService {
 
     async signin(email,password){
         try {
-            const userCredential=await signInWithEmailAndPassword(auth,email,password)
+            const userCredential=await signInWithEmailAndPassword(this.auth,email,password)
 
             return userCredential.user
         } catch (error) {
@@ -40,6 +38,17 @@ export class AuthService {
     }
     getCurrentUser(){
         return this.auth.currentUser
+    }
+
+    async googleSignIn(){
+        try {
+            const res= await signInWithPopup(this.auth,this.provider)
+
+            return res.user
+        } catch (error) {
+            console.log(error.message)
+            throw error
+        }
     }
 }
 
