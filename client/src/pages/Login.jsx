@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Footer from "../components/Footer.jsx";
 import useFirebase from "../hooks/useFirebase.js";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate=useNavigate()
 
   const firebase=useFirebase()
 
@@ -15,6 +17,7 @@ export default function Login() {
 
     try {
       await firebase.signin(email,password)
+      navigate('/dashboard')
     } catch (error) {
       console.log(error.message)
       throw error
@@ -24,6 +27,7 @@ export default function Login() {
   const handleGoogleSignIn=async()=>{
     try {
       const user= await firebase.googleSignIn()
+      navigate('/dashboard')
       console.log(user)
     } catch (error) {
       console.log(error.message)

@@ -1,7 +1,9 @@
 import React from 'react'
 import Landing from './pages/LandingPage/LandingPage'
 import Login from './pages/Login'
+import Signup from './pages/Signup'
 import { Route, Routes } from 'react-router-dom'
+// import DashBoard from './pages/DashBoard'
 
 
 const App = () => {
@@ -11,7 +13,8 @@ const App = () => {
 
   <Route path='/' element={<Landing/>}/>
   <Route path='/login' element={<Login/>}/>
-  {/* <Route path='/signup' element={}/> */}
+  <Route path='/signup' element={<Signup/>}/>
+  {/* <Route path='/dashboard' element={<DashBoard/>}/> */}
 </Routes>
      
      
