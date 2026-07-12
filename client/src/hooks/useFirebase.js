@@ -7,4 +7,4 @@ const useFirebase=()=>{
 return firebase
 }
 
-export {useFirebase}
+export default useFirebase

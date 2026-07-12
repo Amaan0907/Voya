@@ -9,11 +9,9 @@ export class AuthService {
     
     async signup(email, password) {
         try {
-            const userCredential = await createUserWithEmailAndPassword(this.auth, email, password)
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password)
 
-            if (userCredential){
-                return this.signin(email,password)
-            }
+            
 
             console.log(userCredential)
 
@@ -27,7 +25,7 @@ export class AuthService {
 
     async signin(email,password){
         try {
-            const userCredential=await signInWithEmailAndPassword(this.auth,email,password)
+            const userCredential=await signInWithEmailAndPassword(auth,email,password)
 
             return userCredential.user
         } catch (error) {
@@ -45,6 +43,6 @@ export class AuthService {
     }
 }
 
-const authService = new AuthService()
+const authService = new AuthService(auth)
 
 export default authService
