@@ -2,7 +2,7 @@
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 
-CREATE TABLE PUBLIC.PROFILES(
+CREATE TABLE IF NOT EXISTS PUBLIC.PROFILES(
     ID UUID PRIMARY KEY references auth.users (id) on delete cascade,
     DISPLAY_NAME TEXT NOT NULL,
     EMAIL TEXT NOT NULL,
@@ -12,10 +12,10 @@ CREATE TABLE PUBLIC.PROFILES(
 );
 
 
-CREATE UNIQUE INDEX PROFILES_EMAIL_KEY ON PUBLIC.PROFILES (lower(email));
+CREATE UNIQUE INDEX if not EXISTS PROFILES_EMAIL_KEY ON PUBLIC.PROFILES (lower(email));
 
 
-CREATE TABLE PUBLIC.TRIPS(
+CREATE TABLE IF NOT EXISTS PUBLIC.TRIPS(
     ID UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     owner_id uuid not null references auth.users (id) on delete cascade,
     title text not null,
@@ -43,11 +43,11 @@ CREATE TABLE PUBLIC.TRIPS(
     constraint trips_status_valid check (status in('draft','generated','shared'))
 );
 
-create index trips_owner_updated_idx on public.trips (owner_id,updated_at desc);
-create unique index trips_share_token_key on public.trips (share_token) where share_token is not null;
+create index if not exists trips_owner_updated_idx on public.trips (owner_id,updated_at desc);
+create unique index if not exists trips_share_token_key on public.trips (share_token) where share_token is not null;
 
 
-create table public.trip_collaborators (
+create table if not exists public.trip_collaborators (
     trip_id uuid not null references public.trips(id) on delete cascade,
     user_id uuid not null references auth.users (id) on delete cascade,
     added_at timestamptz not null default now(),
@@ -55,9 +55,9 @@ create table public.trip_collaborators (
     primary key (trip_id,user_id)
 );
 
-create index trip_collaborators_user_idx on public.trip_collaborators (user_id);
+create index if not exists trip_collaborators_user_idx on public.trip_collaborators (user_id);
 
-create table public.days(
+create table if not exists public.days(
     id uuid primary key default gen_random_uuid(),
     trip_id uuid not null references public.trips (id) on delete cascade,
     day_number int not null,
@@ -68,18 +68,18 @@ create table public.days(
 
 
     constraint days_day_number_positive check (day_number>= 1),
-    constraint days_trip_day_number_unique unique (trip_id,day_number),
+    constraint days_trip_day_number_unique unique (trip_id,day_number)
 );
 
-create index days_trip_number_idx on public.days (trip_id,day_number);
+create index if not exists days_trip_number_idx on public.days (trip_id,day_number);
 
-create table public.activities(
+create table if not exists public.activities(
     id uuid primary key default gen_random_uuid(),
     day_id uuid not null references public.days (id) on delete cascade,
     trip_id uuid not null references public.trips (id) on delete cascade,
     order_index int not null default 0,
     type text not null,
-    star_time time not null,
+    start_time time not null,
     end_time time not null,
     description text not null default '',
     estimated_cost numeric not null default 0,
@@ -93,16 +93,16 @@ create table public.activities(
 );
 
 
-create index trips_owner_updated_idx on public.activities (day_id,order_index);
-create index activities_trip_idx on public.activities(trip_id);
+create index if not exists activities_day_order_idx on public.activities (day_id,order_index);
+create index if not exists activities_trip_idx on public.activities(trip_id);
 
 
-create table public.suggestions(
+create table if not exists public.suggestions(
     id uuid primary key default gen_random_uuid(),
     trip_id uuid not null references public.trips (id) on delete cascade,
     author_id uuid not null references auth.users (id) on delete cascade,
     day_id uuid not null references public.days( id) on delete cascade,
-    activity_id uuis references public.activities (id) on delete cascade,
+    activity_id uuid references public.activities (id) on delete cascade,
     payload jsonb not null,
     status text not null default 'pending',
     created_at timestamptz not null default now(),
@@ -110,7 +110,7 @@ create table public.suggestions(
     constraint suggestions_status_valid check (status in('pending','accepted','rejected'))
 );
 
-create index suggestions_trips_status_idx on public.suggestions (trip_id,status);
+create index if not exists suggestions_trips_status_idx on public.suggestions (trip_id,status);
 
 
 
